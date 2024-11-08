@@ -31,7 +31,7 @@ File Structure
 Installation
 
 1. Clone the repository:
-git clone https://github.com/username/search-engine-project.git
+git clone https://github.com/remoomer1408/py-search.git
 cd search-engine-project
 
 2. Set up a virtual environment:
