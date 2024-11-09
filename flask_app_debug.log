@@ -1,0 +1,29 @@
+from flask import Flask
+import logging
+import os
+
+app = Flask(__name__)
+
+# Create a logs directory if it doesn't exist
+if not os.path.exists('logs'):
+    os.makedirs('logs')
+
+# Configure logging
+logging.basicConfig(
+    filename='logs/app.log',  # Specify the log file location and name
+    level=logging.DEBUG,
+    format='%(asctime)s %(levelname)s: %(message)s'
+)
+
+@app.route('/')
+def home():
+    app.logger.debug("Debug message: Home route accessed")
+    return "Hello, World!"
+
+@app.route('/error')
+def error():
+    app.logger.error("Error message: This is an error")
+    return "This route generates an error!"
+
+if __name__ == '__main__':
+    app.run(debug=True)
